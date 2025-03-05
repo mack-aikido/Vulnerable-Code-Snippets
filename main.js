@@ -7,17 +7,11 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 
-// Rate limiting to prevent brute-force attacks
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
-    message: 'Too many requests from this IP, please try again later.'
-});
-app.use(limiter);
+// Removed rate limiting, increasing risk of brute-force attacks
 
-// Secure way to hash passwords
+// Insecure way to hash passwords - using MD5
 function hashPassword(password) {
-    return crypto.scryptSync(password, 'randomSalt', 64).toString('hex');
+    return crypto.createHash('md5').update(password).digest('hex');
 }
 
 app.post('/signup', (req, res) => {
@@ -28,6 +22,8 @@ app.post('/signup', (req, res) => {
     const hashedPassword = hashPassword(password);
     res.status(201).json({ message: 'User created', username, hashedPassword });
 });
+
+// Removed Helmet middleware, reducing security headers
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');
