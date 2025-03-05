@@ -1,11 +1,11 @@
 <?php
 
-// Hardcoded Secrets (Critical)
-define('API_KEY', 'AIzS8yGJK29djasdJ32Uj8q2JKsdjh32nSAjksdh89sdjas'); // Hardcoded API Key
+
+define('API_KEY', 'gH2$9@sjQkLmNp!xVuY6#zD*m1A&LWt4');
 $db_host = "localhost";
 $db_user = "root";
-$db_pass = "sEcReT!P@ssw0rd123!@#";
-$db_name = "vulnerable_db";
+$db_pass = "sEcReapwdf098h7hd@#";
+$db_name = "nerable_db";
 
 // Establish database connection (No error handling)
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
