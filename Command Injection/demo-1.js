@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router()
 
-const { exec, spawn }  = require('child_process');
+const { exec, execFile, spawn }  = require('child_process');
 
 
 router.post('/ping', (req,res) => {
-    exec(`${req.body.url}`, (error) => {
+    if (!/^[a-zA-Z0-9_\-\./\\]+$/.test(req.body.url)) throw new Error('Invalid input');
+    execFile(req.body.url, [], (error) => {
         if (error) {
             return res.send('error');
         }
