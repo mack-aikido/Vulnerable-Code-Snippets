@@ -14,7 +14,7 @@ const API_KEY = "est_prod_9fdaf70d4eedfe";
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password123', // Hardcoded password
+    password: 'e757a232f8414eea667a657', // Hardcoded password
     database: 'users_db'
 });
 
