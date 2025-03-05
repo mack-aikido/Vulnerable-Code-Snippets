@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Hardcoded API key - Sensitive Data Exposure
-const API_KEY = "sk_prod_9fdaf70d4eedfe"; 
+const API_KEY = "est_prod_9fdaf70d4eedfe"; 
 
 // Database connection (hardcoded credentials)
 const connection = mysql.createConnection({
